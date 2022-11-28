@@ -116,27 +116,27 @@ Dashboard.getLayout = (page) => (
 	</DashboardLayout>
 );
 
-export const getServerSideProps = async (context) => {
-	const queryClient = new QueryClient();
-	const session = await getSession(context);
+// export const getServerSideProps = async (context) => {
+// 	const queryClient = new QueryClient();
+// 	const session = await getSession(context);
 
-	if ( !session ) {
-		return {
-			redirect: {
-				destination: '/auth/login',
-				permanent: false
-			},
-			props: {
-				dehydratedState: dehydrate(queryClient),
-			}
-		}
-	}
+// 	if ( !session ) {
+// 		return {
+// 			redirect: {
+// 				destination: '/auth/login',
+// 				permanent: false
+// 			},
+// 			props: {
+// 				dehydratedState: dehydrate(queryClient),
+// 			}
+// 		}
+// 	}
 	
-	return {
-		props: {
-			dehydratedState: dehydrate(queryClient),
-		},
-	};
-};
+// 	return {
+// 		props: {
+// 			dehydratedState: dehydrate(queryClient),
+// 		},
+// 	};
+// };
 
 export default Dashboard;
