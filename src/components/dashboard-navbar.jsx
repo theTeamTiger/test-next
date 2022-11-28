@@ -118,7 +118,9 @@ export const DashboardNavbar = (props) => {
 								open={Boolean(anchorEl)}
 								onClose={handleClose}
 							>
-								<MenuItem onClick={handleClose}>
+								{
+									session ? 
+									<><MenuItem onClick={handleClose}>
 									<NextLink
 										href="/account"
 										passHref
@@ -127,6 +129,17 @@ export const DashboardNavbar = (props) => {
 									</NextLink>
 								</MenuItem>
 								<MenuItem onClick={() => { handleClose();signOut(); }}>Log out</MenuItem>
+									</>
+									: <MenuItem onClick={handleClose}>
+									<NextLink
+										href="/auth/login"
+										passHref
+									>
+										<span>Log in</span>
+									</NextLink>
+								</MenuItem>
+								}
+								
 							</Menu>
 					</div>
 				</Toolbar>
